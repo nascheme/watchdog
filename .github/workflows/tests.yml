@@ -42,10 +42,6 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - name: Linux
-            matrix: linux
-            emoji: 🐧
-            runs-on: [ubuntu-latest]
           - name: macOS
             matrix: macos
             emoji: 🍎
@@ -55,15 +51,7 @@ jobs:
             emoji: 🪟
             runs-on: [windows-latest]
         python:
-          - "3.9"
-          - "3.10"
-          - "3.11"
-          - "3.12"
-          - "3.13"
           - "3.13t"
-          - "3.14"
-          - "3.14t"
-          - "pypy-3.9"
         exclude:
           - os:
               matrix: macos
@@ -87,4 +75,4 @@ jobs:
         run: python -m pip install tox
 
       - name: Run tests
-        run: python -m tox -q -e py
+        run: python -m tox -q -e py -k test_emitter

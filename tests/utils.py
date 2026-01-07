@@ -160,7 +160,7 @@ class _EventsChecker:
         self.tmp = helper.tmp
         self.event_queue = helper.event_queue
         self.expected_events = []
-        self._verbose = verbose
+        self._verbose = True
         # If true, check that we receive exactly the expected events in the
         # specified order.
         self._validate_order = True
