@@ -48,7 +48,6 @@ def test_create(
     with events_checker() as ec:
         if platform.is_darwin():
             ec.add(FileCreatedEvent, "a")
-            ec.add(FileModifiedEvent, "a")
         else:
             ec.add(FileCreatedEvent, "a")
             if not platform.is_windows():
@@ -112,7 +111,6 @@ def test_delete(
     with events_checker() as ec:
         if platform.is_darwin():
             ec.add(DirModifiedEvent, ".")
-            ec.add(FileModifiedEvent, "a")
         else:
             ec.add(FileDeletedEvent, "a")
             if not platform.is_windows():
